@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="SolutionsBricks.com">
     <base href="<?php echo $panelInit->baseURL; ?>" />
     <?php if($panelInit->settingsArray['favicon'] == "e"){ ?>
         <link rel="icon" type="image/png" sizes="16x16" href="{{URL::asset('assets/images/favicon.png')}}">
@@ -86,7 +85,9 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown">
+                            <span class="white-text" style="color: #fff;text-transform: uppercase;">{{$users['fullName']}}</span>
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{URL::to('/dashboard/profileImage/'.$users['id'])}}" alt="user" class="profile-pic" /></a>
+                            <span class="caret"></span>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <ul class="dropdown-user">
                                     <li>
@@ -129,21 +130,6 @@
         <aside class="left-sidebar <?php if($panelInit->settingsArray['leftmenuScroller'] == "e"){ echo "enableSlimScroller"; } ?> no-print" style="padding-bottom:60px;">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" >
-                <!-- User profile -->
-                <div class="user-profile">
-                    <!-- User profile image -->
-                    <div class="profile-img"> <img src="{{URL::to('/dashboard/profileImage/'.$users['id'])}}" alt="user" /> </div>
-                    <!-- User profile text-->
-                    <div class="profile-text"> <a href="javascript:void(0)" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{$users['fullName']}} <span class="caret"></span></a>
-                        <div class="dropdown-menu">
-                            <a href="#/account/invoices" class="dropdown-item"><i class="ti-wallet"></i> <?php echo $panelInit->language['myInvoices']; ?></a>
-                            <a href="#/messages" class="dropdown-item"><i class="ti-email"></i> <?php echo $panelInit->language['Messages']; ?></a>
-                            <div class="dropdown-divider"></div> <a href="#/account" class="dropdown-item"><i class="ti-settings"></i> <?php echo $panelInit->language['AccountSettings']; ?></a>
-                            <div class="dropdown-divider"></div> <a href="{{URL::to('/logout')}}" class="dropdown-item"><i class="fa fa-power-off"></i> <?php echo $panelInit->language['logout']; ?></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End User profile text-->
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" <?php if($panelInit->settingsArray['leftmenuScroller'] != "e"){ echo "style='padding-bottom:60px;'"; }?>>
@@ -213,16 +199,6 @@
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
-            <!-- Bottom points-->
-            <div class="sidebar-footer">
-                <!-- item-->
-                <a href="{{URL::to('#/account')}}" class="link" data-toggle="tooltip" title="<?php echo $panelInit->language['AccountSettings']; ?>"><i class="ti-settings"></i></a>
-                <!-- item-->
-                <a href="{{URL::to('#/messages')}}" class="link" data-toggle="tooltip" title="<?php echo $panelInit->language['Messages']; ?>"><i class="mdi mdi-gmail"></i></a>
-                <!-- item-->
-                <a href="{{URL::to('/logout')}}" class="link" data-toggle="tooltip" title="<?php echo $panelInit->language['logout']; ?>"><i class="mdi mdi-power"></i></a>
-            </div>
-            <!-- End Bottom points-->
         </aside>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
